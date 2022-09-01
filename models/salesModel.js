@@ -32,4 +32,9 @@ module.exports = {
     return salesById;
   },
 
+  remove: async (id) => {
+    const sales = await connection.query('DELETE FROM StoreManager.sales WHERE id = ?', [id]);
+    return sales;
+  },
+
 };

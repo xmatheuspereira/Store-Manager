@@ -29,4 +29,17 @@ module.exports = {
     }
   },
 
+  remove: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const sales = await salesService.remove(id);
+      if (!sales) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Sale not found' });
+      return res.status(StatusCodes.NO_CONTENT).end();
+    } catch (err) {
+      console.log(err);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
+    }
+  },
+
 };

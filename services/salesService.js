@@ -13,4 +13,10 @@ module.exports = {
     return salesById;
   },
 
+  remove: async (id) => {
+    const checkIfItExists = await module.exports.getById(id);
+    if (!checkIfItExists) return null;
+    const sales = await salesModel.remove(id);
+    return sales;
+  },
 };
