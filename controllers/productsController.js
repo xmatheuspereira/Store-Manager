@@ -1,8 +1,8 @@
 const { StatusCodes } = require('http-status-codes');
-
 const productsService = require('../services/productsService');
 
 module.exports = {
+
   getAll: async (_req, res) => {
     try {
       const products = await productsService.getAll();
@@ -13,6 +13,7 @@ module.exports = {
         .json({ message: 'Internal Server Error' });
     }
   },
+
   getById: async (req, res) => {
     const { id } = req.params;
     try {
@@ -27,4 +28,17 @@ module.exports = {
         .json({ message: 'Internal Server Error' });
     }
   },
+
+  register: async (req, res) => {
+    const { name } = req.body;
+    try {
+      const product = await productsService.register(name);
+      return res.status(StatusCodes.CREATED).json(product);
+    } catch (err) {
+      console.log(err);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: 'Internal Server Error' });
+    }
+  },
+
 };
