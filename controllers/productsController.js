@@ -41,4 +41,18 @@ module.exports = {
     }
   },
 
+  update: async (req, res) => {
+    const { name } = req.body;
+    const { id } = req.params;
+    try {
+      const product = await productsService.update(id, name);
+      if (!product) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Product not found' });
+      return res.status(StatusCodes.OK).json({ id, name });
+    } catch (err) {
+      console.log(err);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: 'Internal Server Error' });
+    }
+  },
+
 };

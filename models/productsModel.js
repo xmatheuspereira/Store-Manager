@@ -20,4 +20,9 @@ module.exports = {
     return insertId;
   },
 
+  update: async (id, name) => {
+    await connection.query('UPDATE StoreManager.products SET name = ? WHERE id = ?', [name, id]);
+    return module.exports.getById(id);
+  },
+
 };
