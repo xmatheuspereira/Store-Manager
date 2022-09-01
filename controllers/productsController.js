@@ -1,4 +1,4 @@
-const { StatusCodes } = require('http-status-codes');
+const { StatusCodes, ReasonPhrases } = require('http-status-codes');
 const productsService = require('../services/productsService');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ message: 'Internal Server Error' });
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
     }
   },
 
@@ -25,7 +25,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ message: 'Internal Server Error' });
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
     }
   },
 
@@ -37,7 +37,7 @@ module.exports = {
     } catch (err) {
       console.log(err);
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ message: 'Internal Server Error' });
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
     }
   },
 
@@ -51,7 +51,20 @@ module.exports = {
     } catch (err) {
       console.log(err);
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ message: 'Internal Server Error' });
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
+    }
+  },
+
+  remove: async (req, res) => {
+    const { id } = req.params;
+    try {
+      const product = await productsService.remove(id);
+      if (!product) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Product not found' });
+      return res.status(StatusCodes.NO_CONTENT).end();
+    } catch (err) {
+      console.log(err);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });
     }
   },
 

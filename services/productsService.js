@@ -24,4 +24,11 @@ module.exports = {
     return products;
   },
 
+  remove: async (id) => {
+    const checkIfItExists = await module.exports.getById(id);
+    if (!checkIfItExists) return null;
+    const product = await productsModel.remove(id);
+    return product;
+  },
+
 };

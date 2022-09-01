@@ -25,4 +25,8 @@ module.exports = {
     return module.exports.getById(id);
   },
 
+  remove: async (id) => {
+    const product = await connection.query('DELETE FROM StoreManager.products WHERE id = ?', [id]);
+    return product;
+  },
 };
