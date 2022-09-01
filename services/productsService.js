@@ -30,5 +30,11 @@ module.exports = {
     const product = await productsModel.remove(id);
     return product;
   },
-
+  
+  search: async (name) => {
+    const allProducts = await productsModel.getAll();
+    if (!name) return allProducts;
+    const product = await productsModel.search(name);
+    return product;
+  },
 };

@@ -68,4 +68,16 @@ module.exports = {
     }
   },
 
+  search: async (req, res) => {
+    const { q } = req.query;
+    try {
+    const products = await productsService.search(q);
+    return res.status(200).json(products);
+    } catch (err) {
+      console.log(err);
+      return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
+        .json({ message: ReasonPhrases.INTERNAL_SERVER_ERROR });      
+    }
+  },
+
 };

@@ -5,6 +5,7 @@ const { isValidName } = require('../middlewares/validations');
 const router = Router();
 
 router.get('/', productsController.getAll);
+router.get('/search', productsController.search);
 router.get('/:id', productsController.getById);
 router.post('/', isValidName, productsController.register);
 router.put('/:id', isValidName, productsController.update);
