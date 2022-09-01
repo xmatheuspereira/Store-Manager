@@ -4,16 +4,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000",
-    "url": "http://localhost:3000/products/1",
-    "method": "GET",
+    "url": "http://localhost:3000/products",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2022-08-23T19:26:21.058Z",
-    "modified": "2022-09-01T15:05:41.956Z",
+    "modified": "2022-09-01T15:10:37.176Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Martelo de Thor TESTE\"\r\n}\r\n",
+      "raw": "{\r\n  \"id\": 1,\r\n  \"name\": \"Martelo de Thor\"\r\n}\r\n",
       "form": []
     },
     "tests": []

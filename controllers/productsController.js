@@ -47,7 +47,7 @@ module.exports = {
     try {
       const product = await productsService.update(id, name);
       if (!product) return res.status(StatusCodes.NOT_FOUND).json({ message: 'Product not found' });
-      return res.status(StatusCodes.OK).json({ id, name });
+      return res.status(StatusCodes.OK).json(product[0]);
     } catch (err) {
       console.log(err);
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR)
