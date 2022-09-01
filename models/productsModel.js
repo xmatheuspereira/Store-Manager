@@ -16,7 +16,7 @@ module.exports = {
 
   register: async (name) => {
     const [{ insertId }] = await connection
-    .query('INSERT INTO StoreManager.products (name) values (?)', [name]);
+      .query('INSERT INTO StoreManager.products (name) values (?)', [name]);
     return insertId;
   },
 
