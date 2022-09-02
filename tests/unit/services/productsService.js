@@ -3,7 +3,6 @@ const sinon = require('sinon');
 const connection = require('../../../models/connection');
 const productsService = require('../../../services/productsService');
 const productsModel = require('../../../models/productsModel');
-const productsController = require('../../../controllers/productsController');
 
 const prod = [
   { id: 1, name: 'Product 1' },

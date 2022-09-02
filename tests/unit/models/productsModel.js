@@ -3,16 +3,16 @@ const sinon = require('sinon');
 const connection = require('../../../models/connection');
 const productsModel = require('../../../models/productsModel');
 
-const prod = [
-  { id: 1, name: 'Prod 1' },
-  { id: 2, name: 'Prod 2' },
-  { id: 3, name: 'Prod 3' }
+const products = [
+  { id: 1, name: 'Product 1' },
+  { id: 2, name: 'Product 2' },
+  { id: 3, name: 'Product 3' }
 ]
 
 describe('Model: getAll', () => {
 
   before(async () => {
-    const execute = [prod];
+    const execute = [products];
 
     sinon.stub(connection, 'execute').resolves(execute);
   })
@@ -36,7 +36,7 @@ describe('Model: getAll', () => {
 describe('Model: getById', () => {
 
   before(async () => {
-    const execute = [prod];
+    const execute = [products];
 
     sinon.stub(connection, 'execute').resolves(execute);
   })
@@ -68,6 +68,11 @@ describe('Model: getById', () => {
   it('Verifica se retorna o id do produto cadastrado', async () => {
   const response = await productsModel.register('testando');
   expect(response).to.be.a('number')
+  })
+
+  it('Verifica se retorna o id do produto cadastrado', async () => {
+    const response = await productsModel.register('name');
+    expect(response).to.be.not.true
   })
 
   it('Verifica se retorna array vazio', async () => {
