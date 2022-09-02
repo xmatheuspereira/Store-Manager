@@ -26,4 +26,14 @@ describe('Model: getById', () => {
   const [response] = await salesModel.remove(1);
   expect(response).to.be.a('object')
   })
+
+  it('Verifica se o retorno e um objeto', async () => {
+    const [response] = await salesModel.update(1);
+    expect(response).to.be.a('object')
+  })
+
+  it('Verifica se o retorno e um objeto', async () => {
+    const [response] = await salesModel.register(1);
+    expect(response).to.be.a('object')
+  })
 });

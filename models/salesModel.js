@@ -2,6 +2,11 @@ const connection = require('./connection');
 
 module.exports = {
 
+  register: async () => {
+    const sales = await connection.query('INSERT INTO StoreManager.sales () VALUES ()');
+    return sales;
+  },
+
   getAll: async () => {
     const sales = await connection
       .query(

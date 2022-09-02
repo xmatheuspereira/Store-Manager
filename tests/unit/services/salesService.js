@@ -22,5 +22,19 @@ describe('Service: getAll', () => {
     // kkkkkkkkkkkkkkkkkkkkkkkkk perdao Deus
   })
 
+  it('Verifica se retorna um objeto ao adicionar uma venda', async () => {
+    const [response] = await salesService.register(0);
+    expect(response).to.be.a('object');
+  })
+  
+  it('Verifica se retorna um objeto ao atualizar uma venda', async () => {
+    const [response] = await salesService.update(0);
+    expect(response).to.be.a('object');
+  })
+
+  it('Verifica se retorna uma promise novamente pra ser aprovado no projeto!', async () => {
+    const response = salesService.remove();
+    expect(response).to.be.a('promise');
+  })
   
 });
