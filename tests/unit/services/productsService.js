@@ -68,5 +68,10 @@ describe('Service: getAll', () => {
 
       expect(deletion).to.be.equals(null);
     });
+      
+    it('Verifica se retorna todos os produtos ao pesquisar sem parametro de busca', async () => {
+      const response = await productsService.search();
+      expect(response).to.be.a('array')
+    })
   });
 });
