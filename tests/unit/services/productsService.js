@@ -54,4 +54,19 @@ describe('Service: getAll', () => {
         expect(deletion).to.be.deep.equal(null);
       });
     });
+  
+    describe("register", () => {
+
+    it("Verifica se e possivel cadastrar um produto e retorna um objeto", async () => {
+      const deletion = await productsService.register('teste');
+
+      expect(deletion).to.be.a('object');
+    });
+      
+    it("Verifica se retorna null ao tentar atualizar um produto sem id", async () => {
+      const deletion = await productsService.update();
+
+      expect(deletion).to.be.equals(null);
+    });
+  });
 });

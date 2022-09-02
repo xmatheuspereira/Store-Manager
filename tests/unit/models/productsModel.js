@@ -65,4 +65,9 @@ describe('Model: getById', () => {
   expect(response).to.be.a('object')
   })
 
+  it('Verifica se o retorno e um objeto', async () => {
+  const response = await productsModel.register('testando');
+  expect(response).to.be.a('number')
+  })
+
 });
