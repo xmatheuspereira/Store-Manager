@@ -37,4 +37,14 @@ module.exports = {
     return sales;
   },
 
+  update: async (saleId, productId, quantity) => {
+    const sales = await connection
+      .query(
+        `UPDATE StoreManager.sales_products
+        SET quantity = ?
+        WHERE sale_id = ? AND product_id = ?`, [quantity, saleId, productId],
+    );    
+    return sales;
+  },
+
 };
